@@ -176,3 +176,18 @@ myArray.shift();
 myArray.unshift(["Phil", 34]);
 
 //Shopping List
+var myList = [["cereal", 3], ["milk", 2], ["bananas", 3], ["juice", 2], ["eggs", 12]];
+
+//Functions - can be reused in your code
+function ourReusableFunction() {
+    console.log("Hello, World!");
+}
+
+ourReusableFunction(); //the call of the reusable function, will output Hello, World!
+
+function reusableFunction() {
+    console.log("Hello, children!");
+}
+reusableFunction(); //calls the function
+
+//Passing values to Functions with Arguments

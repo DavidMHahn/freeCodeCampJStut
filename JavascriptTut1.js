@@ -144,3 +144,22 @@ var ourData = ourArray[0]; // equals 50, the 0th element
 //Modify Array Data with Indexes
 var ourArray = [18,64,99];
 ourArray[1] = 45; // the array is now [18,45,99]
+
+//Access Multi-Dimensional Arrays with Indexes
+var myArray = [[1,2,3],[4,5,6],[7,8,9],[[10,11,12], 13, 14]]; //3 layar array
+var myData = myArray[0][0]; //first bracket is first element in array, second bracket is the value of the first element of the array within the array.
+var myData2 = myArray[2][1]; //this equals 8, the second element of the third array.
+
+//Manipulate Arrays with push()
+var ourArray = ["Stimpson", "J", "Cat"];
+ourArray.push(["happy", "joy"]); // ourArray now equals ["Stimpson", "J", "Cat" ["happy", "joy"]]
+var myArray = [["John", 23],["cat", 2]];
+myArray.push(["dog", 3]);
+
+//Manipulate Arrays with pop()
+var ourArray = [1,2,3];
+var removedFromOurArray = ourArray.pop(); // removedFromOurArray now equals 3, and our array now equals [1,2]
+var myArray = [["John", 23], ["cat", 2]];
+var removedFromMyArray = myArray.pop(); //removes the second array in this case
+
+//Manipulate Arrays with shift()

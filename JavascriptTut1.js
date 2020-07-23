@@ -186,3 +186,65 @@ function ourReusableFunction() {
 ourReusableFunction(); //the call of the reusable function
 
 //Passing Values to Function with Arguments
+function ourFunctionWithArgs(a, b) {
+    console.log(a - b);
+}
+ourFunctionWithArgs(10, 5); //outputs 5
+
+function functionWithArgs(a, b){
+    console.log(a + b);
+}
+functionWithArgs(10, 5); //outputs 15
+
+//Global Scope and Functions
+var myGlobal = 10; //a global variable
+
+function fun1() {
+    oopsGlobal = 5; //since not using 'var' keyword, this becomes global automatically.
+}
+
+function fun2() {
+    var output = "";
+    if (typeof myGlobal != "undefined") {
+        output += "myGlobal: " + myGlobal;
+    }
+    if (typeof oopsGlobal != "undefined") {
+        output += " oopsGlobal: " + oopsGlobal;
+    }
+    console.log(output);
+}
+fun1();
+fun2();
+
+//Local Scope and Functions
+function myLocalScope() {
+    var myVar = 5;
+    console.log(myVar); //returns 5 to the console
+}
+myLocalScope(); //calls the function and it will print the 5 on console
+console.log(myVar); //returns an error as the myVar is not global
+
+//Global vs Local Scope in Functions
+//you can have local and global variables with the same name, but it can be confusing for debugging purposes. The local variable takes precedent over the global variable.
+var outerWear = "T-Shirt"; //global variable
+function myOutfit() {
+    var outerWear = "Sweater"; //local variable
+    return outerWear;
+}
+
+console.log(myOutfit()); //will print Sweater
+console.log(outerWear); //will print T-Shirt
+
+//Return a Value from a Function with Return
+function minusSeven(num) {  //function has an argument 'num'
+    return num - 7;         //this returns the value 'num' - 7 to the function (function output)
+}
+
+console.log(minusSeven(10)); //calling the function with 10 in the argument passes the number 10 to the function which inserts it into the calculation in the return statement. The outcome of the function call with 10 as argument will print 3 (10 - 7).
+//Similarly
+function timesFive(num) {
+    return num * 5;
+}
+console.log(timesFive(5)); //should output 25
+
+//Understanding Undefined Value Returned from a Function

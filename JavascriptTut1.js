@@ -248,3 +248,66 @@ function timesFive(num) {
 console.log(timesFive(5)); //should output 25
 
 //Understanding Undefined Value Returned from a Function
+var sum = 0; //global variable
+function addThree() {   //this function has no return, so value is 'undefined'
+    sum = sum + 3;
+}
+
+function addFive() {    //this also is undefined as there is no returned value
+    sum += 5;
+}
+
+//Assignment with a returned value
+var changed = 0;
+function change(num) {
+    return (num + 5) / 3;
+}
+changed = change(10);   //5 will be the result
+
+
+var processed = 0;
+function processArg(num) {
+    return (num + 3) / 5;
+}
+processed = processArg(7);  //2 will be the result
+
+//Stand in Line (function of a queue)
+function nextInLine(arr, item) {
+    arr.push(item); //push adds an item to the end of a list
+    return arr.shift(); //shift removes the first item of list and returns it.
+}
+
+var testArr = [1,2,3,4,5];
+
+console.log("Before: " + JSON.stringify(testArr)); //JSON.stringify is a way to convert an array into a string which can be printed to console.log
+console.log(nextInLine(testArr, 6));
+console.log("After: " + JSON.stringify(test));
+
+//Boolean Values
+function welcomeToBooleans() {
+    return false;
+}
+
+function welcomeToBooleans() {
+    return true;
+}
+
+//Use Conditional Logic with If Statements
+function ourTrueOrFalse(isItTrue) {
+    if (isItTrue) {
+        return "Yes, it's true";
+    }
+    return "No, it's false";
+}
+
+function trueOrFalse(wasThatTrue) {
+    if (wasThatTrue) {
+        return "Yes, that was true";
+    }
+    return "No, that was false";
+
+}
+
+console.log(trueOrFalse(true));
+
+//Comparison with the Equality Operator

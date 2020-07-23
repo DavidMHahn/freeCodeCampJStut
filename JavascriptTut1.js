@@ -311,3 +311,13 @@ function trueOrFalse(wasThatTrue) {
 console.log(trueOrFalse(true));
 
 //Comparison with the Equality Operator
+function testEqual(val) {
+    if (val == 12) { //val == 'some number' for equivalency test, not equal to (=)
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log(testEqual(10));
+
+//Comparison with the Strict Equality Operator

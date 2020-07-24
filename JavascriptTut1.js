@@ -1,3 +1,5 @@
+//freeCodeCamp.org - Learn JavaScript Full Course for Beginners
+
 console.log("Hello World!"); // usual starting code
 
 var myName = "David"; // setting a variable value, variable declaration. can be used in whole program
@@ -320,4 +322,143 @@ function testEqual(val) {
 
 console.log(testEqual(10));
 
-//Comparison with the Strict Equality Operator
+//Comparison with the Strict Equality Operator (===), doesn't do type conversion
+//e.g. 3 === 3 true, 3 === "3" false, 3 == "3" true, 
+function testStrict(val) {
+    if (val === 3) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log (testStrict(10));
+
+//Practicing Comparing Different Values
+function compareEquality(a, b) {
+    if (a == b) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log(compareEquality(10, "10")); // returns and prints equal
+
+//Strict
+function compareEquality(a, b) {
+    if (a === b) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+console.log(compareEquality(10, "10")); // returns and prints Not Equal
+
+//Inequality Operator (performs type conversion)
+function testNotEqual(val) {
+    if (val != 9) {
+        return "Not Equal";
+    }
+    return "Equal";
+}
+
+console.log(testNotEqual(10)); //returns and prints Not Equal
+
+//Strict Inequality Operator
+function testNotEqual(val) {
+    if (val !== 17) {
+        return "Not Equal";
+    }
+    return "Equal";
+}
+
+console.log(testNotEqual("17")); //Returns and prints Not Equal
+
+//Comparisons with the Greater Than (>) Operator
+function testGreaterThan(val) {
+    if (val > 100) {
+        return "Over 100";
+    }
+    if (val > 10) {
+        return "Over 10";
+        
+    }
+    return "10 or Under";
+}
+
+console.log(testGreaterThan(10)); //returns and prints 10 or Under
+
+//Comparisons with the Greater Than Or Equal To (>=) operator
+function testGreaterOrEqual(val) {
+    if (val >= 20) {
+        return "20 or Over";
+    }
+    if (val >= 10) {
+        return "10 or Over";
+    }
+    return "Less than 10";
+}
+console.log(testGreaterOrEqual(10)); //returns and prints 10 or Over
+
+//Comparisons with the Less Than Operator
+function testLessThan(val){
+    if (val < 10) {
+        return "Less Than 10";
+    }
+    if (val < 20) {
+        return "Less Than 20";
+    }
+    return "Greater than or Equal to 20";
+}
+console.log(testLessThan(20));
+
+//Comparisons with the Less Than Or Equal To Operator
+function testLessOrEqual(val) {
+    if (val <= 10) {
+        return "Less Than or Equal to 10";
+    }
+    if (val <= 20) {
+        return "Less Than or Equal to 20";
+    }
+    return "More Than 20";
+}
+console.log(testLessOrEqual(30));
+
+//Comparisons with the Logical 'AND' Operator (&&)
+function testLogicalAnd(val) {
+    if (val <= 50 && val >= 25) {
+            return "Yes";
+        }
+    return "No";
+}
+console.log(testLogicalAnd(30));
+
+//Comparisons with the Logical 'OR' Operator (||)
+function testLogicalOr(val) {
+    if (val < 10 || val > 20) { //is the value less than 10 or greater than 20
+        return "Outside";
+    }
+
+    return "Inside";
+}
+console.log(testLogicalOr(30));
+
+//Else Statements
+function testElse(val) {
+    var result = "";
+    if (val > 5) {
+        result = "Bigger than 5";
+    }
+    else {
+        result = "5 or Smaller";
+    }
+    return result;
+}
+console.log(testElse(6));
+
+//Else If statements
+function testElseIf(val) {
+    if (val > 10 ) {
+        return "Greater than 10";
+    }
+    return "Between 5 and 10";
+}

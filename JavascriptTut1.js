@@ -460,5 +460,100 @@ function testElseIf(val) {
     if (val > 10 ) {
         return "Greater than 10";
     }
+    else if (val < 5) {
+        return "Smaller than 5";
+    }
+    else {
     return "Between 5 and 10";
+    }
 }
+console.log (testElseIf(6));
+
+//Logical Order in If Else Statements
+function orderMyLogic(val) {
+    if (val < 10) {
+        return "Less than 10";
+    }
+    else if (val < 5) { //Notice that this is out of order, it should be above the top if statement.
+        return "Less than 5";
+    }
+    else {
+        return "Greater than or equal to 10";
+    }
+}
+console.log(orderMyLogic(7)); //will return 'Less than 10' for any value less than 10, including values less than 5. 
+// Corrected Logical Order in If Else Statements (using above example)
+function orderMyLogic(val) {
+    if (val < 5) {
+        return "Less than 10";
+    }
+    else if (val < 10) { 
+        return "Less than 5";
+    }
+    else {
+        return "Greater than or equal to 10";
+    }
+}
+console.log(orderMyLogic(7)); //This will give correct values now that the order is correct.
+
+//Chaining If Else Statements
+/*
+Write chained if/else statements to fulfill the following conditions:
+num < 5 - return "Tiny"
+num < 10 - return "Small"
+num < 15 - return "Medium"
+num < 20 - return "Large"
+num >= 20 - return "Huge"
+*/
+
+function myChainedStatements(val) {
+    if (val < 5) {
+        return "Tiny";
+    }
+    else if (val < 10) {
+        return "Small";
+    }
+    else if (val < 15) {
+        return "Medium";
+    }
+    else if (val < 20) {
+        return "Large";
+    }
+    else {
+        return "Huge";
+    }
+}
+console.log(myChainedStatements(20));
+
+//Golf Code
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+function golfScore(par, strokes) {
+    if (strokes == 0) {
+        return "Well, we're waiting";
+    }
+    else if (strokes == 1) {
+        return names[0];
+    }
+    else if (strokes <= par - 2) {
+        return names[1];
+    }
+    else if (strokes == par - 1) {
+        return names[2];
+    }
+    else if (strokes == par) {
+        return names[3];
+    }
+    else if (strokes == par + 1) {
+        return names[4];
+    }
+    else if (strokes == par + 2) {
+        return names[5];
+    }
+    else if (strokes >= par + 3) {
+        return names[6];
+    }
+   
+}
+console.log(golfScore(5,4));
+
+//Switch Statements

@@ -803,3 +803,163 @@ console.log(ourDog.name);
 console.log(myDog.name);
 
 //Add New Properties to an Object
+var ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything!"]
+};
+ourDog.bark = "bow-wow"; //adding a new property to ourDog
+console.log(ourDog);
+
+var myDog = {
+    "name": "Happy Coder",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["freeCodeCamp Campers"]
+};
+myDog['bark'] = "woof!"
+console.log(myDog);
+
+//Delete Properties from an Object
+var ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "bark": "bow-wow"
+};
+console.log(ourDog);
+delete ourDog.bark;
+console.log(ourDog);
+
+var myDog = {
+    "name": "Happy Coder",
+    "legs": 4,
+    "tails": 1,
+    "bark": "woof"
+};
+console.log(myDog);
+delete myDog.tails;
+console.log(myDog);
+
+//Using Objects for Lookups
+function phoneticLookup(val) {
+    var result = "";
+
+/* can replace the switch statement below with an object for doing lookups.
+    switch(val) {
+        case "alpha":
+            result = "Adams";
+            break;
+        case "bravo":
+            result = "Boston";
+            break;
+        case "charlie":
+            result = "Chicago";
+            break;
+        case "delta":
+            result = "Denver";
+            break;
+        case "echo":
+            result = "Easy";
+            break;
+        case "foxtrot":
+            result = "Easy";
+            break;
+    }
+*/
+    var lookup = {
+        "alpha": "Adams",
+        "bravo": "Boston",
+        "charlie": "Chicago",
+        "delta": "Denver",
+        "echo": "Easy",
+        "foxtrot": "Frank"
+    };
+    result = lookup[val];
+    return result;
+}
+console.log(phoneticLookup("charlie"));
+
+//Testing Objects for Properties
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+};
+
+function checkObj(checkProp) {
+   if (myObj.hasOwnProperty(checkProp))  {
+    return myObj[checkProp];
+    }
+    else {
+    return "Not Found";
+    }
+}
+console.log(checkObj("gift"));
+
+//Manipulating Complex Objects
+var myMusic = [ //Array called myMusic containing objects.
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "formats": [
+            "CD",
+            "8T",
+            "LP"
+        ],
+        "gold": true
+    },                          //add a comma after each element in an array, including multiple objects within an array.
+    {
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_year": 2003,
+        "formats": [
+            "YouTube video"
+        ]
+    }
+];
+
+//Accessing Nested Objects
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+console.log(gloveBoxContents); //prints maps
+//alternatively
+var gloveBoxContents = myStorage.car.outside["trunk"]; //prints jack
+
+//Accessing Nested Arrays
+var myPlants = [
+    {
+        type: "flowers",
+        list: [
+            "rose",
+            "tulip",
+            "dandelion"
+        ]
+    },
+    {
+        type: "trees",
+        list: [
+            "fir",
+            "pine",
+            "birch"
+        ]
+    }
+];
+
+var secondTree = myPlants[1].list[1]; //remember that arrays start counting at 0
+console.log(secondTree);
+
+//Record Collection

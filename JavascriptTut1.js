@@ -777,8 +777,29 @@ var testObj = {
 
 var playerNumber = 16; //create a variable and assign value of 16 which corresponds to a player name in the testObj.
 var player = testObj[playerNumber]; //pass the variable playerNumber (16) into the testObj and assign that value to player. Since 16 is "Montana", the testObj will return "Montana" and assign it to the variable player.
-var player2 = testObj[19]; //More directly, this assigns "Unitas" to the variable player2, without using an additional variable.
+var player2 = testObj[19]; //More directly, this assigns "Unitas" to the variable player2, without using an additional variable to look up the value in the testObj.
 
 console.log(player); //prints out Montana
 console.log(player2); //prints out Unitas
 
+//Updating Object Properties
+var ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["Everything!"]
+};
+ourDog.name = "Happy Camper"; //changes the value of the name property in the ourDog object to "Happy Camper"
+
+var myDog = {
+    "name": "Coder",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["freeCodeCamp Campers!"]
+};
+myDog.name = "Happy Coder";
+
+console.log(ourDog.name);
+console.log(myDog.name);
+
+//Add New Properties to an Object

@@ -991,17 +991,107 @@ var collection = {
 var collectionCopy = JSON.parse(JSON.stringify(collection)); //Keep a copy of the collection for tests. This makes a copy of the collection object.
 
 function updateRecords(id, prop, value) {
-    if (value === "") {
-        delete collection[id][prop]
+    if (value === "") { //if the value is blank, then delete the id and property
+        delete collection[id][prop];
     }
-    else if (prop === "tracks") {
-        collection[id][prop] = collection[id][prop] || [];
-        collection[id][prop].push(value);
+    else if (prop === "tracks") { //for tracks, we would want to add another track to the existing array of tracks, not replace a track.
+        collection[id][prop] = collection[id][prop] || []; //if the tracks property is empty, we want to create an array [].
+        collection[id][prop].push(value); //when the property 'tracks' exists, this code allows the addition of a track (passed in via the value variable) to the end of the array.
     }
     else {
-        collection[id][prop] = value;
+        collection[id][prop] = value; //if the value isn't blank, nor is it 'tracks' then we push the value onto the property.
     }
 
     return collection;
 }
 console.log(updateRecords(5439, "artist", "ABBA"));
+
+console.log(updateRecords(2468, "tracks", "song"));
+
+console.log(updateRecords(2468, "test", "bloke"));
+
+//Iterate While Loops
+var myArray = [];
+
+var i = 0;
+while(i < 5) {
+    myArray.push(i);
+    i++;
+}
+console.log(myArray);
+
+//Iterate with For Loops
+var ourArray = [];
+for (var i = 0; i < 5; i++) { //first item in parentheses is initialization, then condition, then expression
+    ourArray.push(i);
+}
+console.log(ourArray);
+
+//Example 2 of For Loop
+var myArray = [];
+
+for (var i = 1; i < 6; i++) {
+    myArray.push(i);
+}
+console.log(myArray);
+
+//Iterate Odd Numbers with a For Loop
+var ourArray = [];
+for (var i = 0; i < 10; i += 2) {
+    ourArray.push(i);
+}
+console.log(ourArray);
+
+//For Loop Iterating Odd Numbers
+var myArray = [];
+for (var i = 1; i < 10; i += 2) {
+    ourArray.push(i);
+}
+console.log(myArray);
+
+//Count Backwards with a For Loop
+var ourArray = [];
+for (var i = 10; i > 0; i -= 2) {
+    ourArray.push(i);
+}
+console.log(ourArray);
+
+
+var myArray = [];
+for (var i = 9; i > 0; i -= 2) {
+    myArray.push(i);
+}
+console.log(myArray);
+
+//Iterate Through an Array with a For Loop
+var ourArray = [9, 10, 11, 12];
+var ourTotal = 0;
+for (var i = 0; i < ourArray.length; i++) {
+    ourTotal += ourArray[i];
+}
+console.log(ourTotal);
+
+var myArray = [2, 3, 4, 5, 6];
+var myTotal = 0;
+for (var i = 0; i < myArray.length; i++) {
+    myTotal += myArray[i];
+}
+console.log(myTotal);
+
+//Nesting For Loops, when you have a nested array, in order to access all of the array elements
+function multiplyAll(arr) {
+    var product = 1;
+    
+    for (var i = 0; i < arr.length; i++) { //iterate through outer array
+        for (var j = 0; j < arr[i].length; j++) { //iterate through inner array
+            product *= arr[i][j];
+        }
+    }
+    return product;
+}
+
+var product = multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+
+console.log(product);
+
+//Iterate with Do...While Loops

@@ -1094,4 +1094,129 @@ var product = multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
 
 console.log(product);
 
-//Iterate with Do...While Loops
+//Iterate with Do...While Loops. A 'Do...While' loop will run at least one time and then it checks the condition.
+var myArray = [];
+var i = 10;
+
+//While loop
+while (i < 5) { //check 'while' condition before running any code in the loop. I is NOT less than 5, so it does nothing really.
+    myArray.push(i);
+    i++;
+}
+console.log(i, myArray); //Prints 10, []
+
+//Do...While Loop, runs once before checking 'while' condition.
+do {
+    myArray.push(i);
+    i++;
+}
+while (i < 5)
+console.log(i, myArray); //Prints 11, [10]
+
+//Coding Challenge
+var contacts = [ //Create an array named 'contacts', and fill it with data
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwards", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["Javascript", "Gaming", "Foxes"]
+    }
+];
+
+function lookUpProfile(name, prop) { //lookup function to find the data we are interested in retrieving
+    for (var i = 0; i < contacts.length; i++) {
+        if(contacts[i].firstName === name) {
+            return contacts[i][prop] || "No Such Property";
+        }
+    }
+    return "No Such Contact";
+}
+
+var data = lookUpProfile("Akira", "likes");
+
+console.log(data);
+
+//Generate Random Fractions
+function randomFraction() {
+
+    return Math.random(); //creates a pseudorandom decimal number between and including 0 up to, but not including, 1.
+}
+console.log(randomFraction());
+
+//Generate Random Whole Numbers
+var randomNumberBetween0and19 = Math.floor(Math.random() * 20); //Generates a random number between 0 and 19.
+console.log(randomNumberBetween0and19());
+
+function randomWholeNum() {
+
+    return Math.floor(Math.random() * 10); //Gives a random number between 0 and 9
+}
+console.log(randomWholeNum());
+
+//Generate Random Whole Numbers within a Range
+function ourRandomRange(ourMin, ourMax) {
+
+    return Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+}
+
+console.log(ourRandomRange(1, 9));
+
+//Example
+function randomRange(myMin, myMax) {
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+var myRandom = randomRange(5, 15);
+
+console.log(myRandom);
+
+//Use the parseInt Function
+function convertToInteger(str) {
+    return parseInt(str);
+}
+console.log(convertToInteger("56"));
+
+//Use the parseInt Function with a Radix - Radix is the base of the number in the string (e.g. base 2, base 10).
+function convertToInteger(str) {
+    return parseInt(str, 2); //pass in the string as base 2.
+}
+console.log(convertToInteger("10011")); //Prints 19 to the console
+
+//Use the Conditional (Ternary) Operator -- condition ? statement-if-true : statement-if-false;
+function checkEqual(a, b) {
+    return a === b ? true : false; // return a === b; is functionally the same
+//Can use the Conditional Operator above to replace the code below
+/*    if(a == b) {
+        return true;
+    }
+    else {
+        return false;
+    }
+*/
+}
+console.log(checkEqual(1, 2));
+
+//Use Multiple Conditional (Ternary) Operators
+function checkSign(num) {
+    return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+}
+console.log(checkSign(10));
+
+//Defferences Between the var and let Keywords

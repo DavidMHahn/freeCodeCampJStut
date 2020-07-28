@@ -1,4 +1,5 @@
 //freeCodeCamp.org - Learn JavaScript Full Course for Beginners
+//YouTube link: https://www.youtube.com/watch?v=PkZNo7MFNFg
 
 console.log("Hello World!"); // usual starting code
 
@@ -1219,4 +1220,248 @@ function checkSign(num) {
 }
 console.log(checkSign(10));
 
-//Defferences Between the var and let Keywords
+//Differences Between the 'var' and 'let' Keywords for declaring variables
+//ES6 allows us to declare variables using 'let' and 'const'.
+//'let' doesn not allow us to declare a variable twice.
+/* var catName = "Quincy";
+var quote;
+
+var catName = "Beau";
+
+function catTalk() {
+    "use strict";
+
+    catName = "Oliver";
+    quote = catName + "says Meow!";
+}
+console.log(catTalk()); //Won't give an error of duplicate declaration "catName"
+*/
+//Change 'var' to 'let'
+let catName = "Quincy";
+let quote;
+
+let catName = "Beau";
+
+function catTalk() {
+    "use strict";
+
+    catName = "Oliver";
+    quote = catName + "says Meow!";
+}
+console.log(catTalk()); //gives an error of duplicate declaration "catName"
+
+//You can use 'let' to declare the catName variable and then later reset it without using 'let'
+let catName = "Quincy";
+let quote;
+
+catName = "Beau"; //resetting the catName variable after declaring it using 'let'
+
+function catTalk() {
+    "use strict";   //This enables strict mode to catch mistakes and unsafe actions
+
+    catName = "Oliver";
+    quote = catName + "says Meow!";
+}
+console.log(catTalk());
+
+//Compare Scopes of the 'var' and 'let' Keywords. 'var' declarations are global unless declared in a function where they are local. 'let' declarations are limited in scope to the block statement or expression they are declared in.
+function checkScope() {
+    "use strict";
+    var i = "function scope";
+    if (true) {
+        i = "block scope";
+        console.log("Block scope i is: ", i);
+    }
+    console.log("Function scope i is: ", i);
+}
+checkScope(); //Prints to console - Block scope i is: "block scope". Function scope i is: "block scope". Note that both scopes are block scope, because the var i declaration is overwritten in the block (i = "block scope").
+//Rewriting the above code using let
+function checkScope() {
+    "use strict";
+    let i = "function scope";
+    if (true) { //A block is anything within { }.
+       let i = "block scope";
+        console.log("Block scope i is: ", i);
+    }
+    console.log("Function scope i is: ", i);
+}
+checkScope();//Prints to console - Block scope i is: "block scope". Function scope i is: "function scope". 'let' allows the two declarations to be separate and not overwrite one with the other.
+
+//Example of 'var' declaration being accessible outside of a block.
+function checkScope() {
+    "use strict";
+    
+    if (true) { //A block is anything within { }.
+       var i = "block scope"; //'var' declaration being accessible outside of block
+        console.log("Block scope i is: ", i);
+    }
+    console.log("Function scope i is: ", i);
+}
+checkScope(); //Prints to console - Block scope i is: "block scope". Function scope i is: "block scope". Variable i is still accessible outside of the block
+
+//Example of 'let' declaration not being accessible outside of block
+function checkScope() {
+    "use strict";
+    
+    if (true) { //A block is anything within { }.
+       let i = "block scope"; //'let' declaration not being accessible outside of block
+        console.log("Block scope i is: ", i);
+    }
+    console.log("Function scope i is: ", i);
+}
+checkScope(); //Prints to console - Block scope i is: "block scope". ReferenceError. i is not defined (for the function scope).
+
+//Declare a Read-only Variable with the 'const' Keyword
+function printManyTimes(str) {
+    "use strict";
+    var sentence = str + " is cool!"; //sentence variable declared as 'var'
+    sentence = str + " is amazing"; //sentence variable reassigned
+    
+    for(var i = 0; i < str.length; i += 2) {
+        console.log(sentence);
+    }
+}
+printManyTimes("freeCodeCamp"); //Prints to console - freeCodeCamp is amazing!
+
+function printManyTimes(str) {
+    "use strict";
+    const sentence = str + " is cool!"; //sentence variable declared as 'const'
+    sentence = str + " is amazing"; //sentence variable reassigned. This fails.
+    
+    for(var i = 0; i < str.length; i += 2) {
+        console.log(sentence);
+    }
+}
+printManyTimes("freeCodeCamp"); //Prints to console - Error: SyntaxError: unknown: "sentence" is read-only. This happens because sentence was declared as 'const' so it can not be reassigned. Note: if you know for sure that you never want to reassign a variable, use 'const' when declaring it. Also, it is very common to use ALL CAPS for the variable name as below.
+function printManyTimes(str) {
+    "use strict";
+    const SENTENCE = str + " is cool!"; //sentence variable declared as 'const'
+    //sentence = str + " is amazing"; //sentence variable reassigned. This fails. Commented this line out.
+    
+    for(let i = 0; i < str.length; i += 2) { //declaring i using 'let'
+        console.log(SENTENCE);
+    }
+}
+printManyTimes("freeCodeCamp");
+
+//Mutate an Array Declared with 'const'
+const s = [5, 7, 2];
+function editInPlace() {
+    "use strict";
+
+    s = [2, 5, 7];
+}
+editInPlace(); //This causes an error, 's' is read-only
+//However you can do this:
+const s = [5, 7, 2];
+function editInPlace() {
+    "use strict";
+    s[0] = 2; //Here we have reassigned the each index in the array
+    s[1] = 5;
+    s[2] = 7;
+}
+editInPlace();
+console.log(s);
+
+//Prevent Object Mutation
+function freezeObj() {
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+
+try {
+    MATH_CONSTANTS.PI = 99;
+}
+catch( ex ) {
+    console.log(ex);
+}
+return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+
+console.log(PI); //Prints to console - 99 (i.e. the initial value was overwritten)
+
+//Here we use Object.freeze to prevent the 'const' value from changing/being overwritten
+function freezeObj() {
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+
+    Object.freeze(MATH_CONSTANTS); //prevents MATH_CONSTANTS from being overwritten
+
+try {
+    MATH_CONSTANTS.PI = 99;
+}
+catch( ex ) { //this is the catch block to throw an exception.
+    console.log(ex);
+}
+return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+
+console.log(PI); //Prints - TypeError: cannot assign to read-only property 'PI' of object
+
+//Use Arrow Function to Write Concise Anonymous Functions
+var magic = function() { //this is an anonymous function it doesn't have a name, it is just assigned to the magic variable
+    return new Date();
+};
+//Rewriting the above code using Arrow Function
+var magic = () => {
+    return new Date();
+};
+//Can be rewritten even further
+var magic = () => new Date();
+//alternatly
+const magic = () => new Date();
+
+//Write Arrow Functions with Parameters
+var myConcat = function(arr1, arr2) {
+    return arr1.concat(arr2);
+};
+console.log(myConcat([1, 2], [3, 4, 5]));
+
+//converting the above function into an arrow (=>) function
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+console.log(myConcat([1, 2], [3, 4, 5])); //Prints - [1, 2, 3, 4, 5]
+
+//Write Higher Order Arrow Functions
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+    const squaredIntegers = arr;
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+//Rewriting the above code using higher order Arrow function. We want to square only the positive integers (using filter and map functions).
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+//Using Default Parameters in functions.
+const increment = (function() {
+    return function increment(number, value = 1) { //setting a default for value (1).
+        return number + value;
+    };
+}) ();
+console.log(increments(5, 2));
+console.log(increments(5));
+
+//Use the Rest Operator (...) with Function Parameters. The rest operator allows a variable number of arguments.
+const sum = (function() {
+    return function sum(x, y, z) {
+        const args = [ x, y, z ];
+        return args.reduce((a, b) => a + b, 0);
+    };
+})();
+console.log(sum(1, 2, 3));
+
+//Converting the code above into using the Rest Operator

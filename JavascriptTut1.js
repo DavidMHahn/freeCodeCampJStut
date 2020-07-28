@@ -1585,7 +1585,7 @@ console.log(arr); //Prints [3,4,5,6,7,8,9,10]
 //Use Destructuring Assignment to Pass an Object as a Function's Parameters
 const stats = {
     max: 56.78,
-    standard_deviation: 4.34;
+    standard_deviation: 4.34,
     median: 34.54,
     mode: 23.87,
     min: -0.75,
@@ -1602,7 +1602,7 @@ console.log(half(stats));
 //Rewriting the above code to pass in only what we need. This is commonly used with API calls/AJAX requests
 const stats = {
     max: 56.78,
-    standard_deviation: 4.34;
+    standard_deviation: 4.34,
     median: 34.54,
     mode: 23.87,
     min: -0.75,

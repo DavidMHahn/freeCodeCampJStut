@@ -1617,3 +1617,94 @@ console.log(stats);
 console.log(half(stats));
 
 //Create Strings using Template Literals
+const person = {
+    name: "Zodiac Hasbro",
+    age: 56
+};
+//Template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name}! I am ${person.age} years old.`; //use a back tick (`) not a quotation mark (').
+
+console.log(greeting);
+//Coding Challenge
+const result = {
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+    const resultDiplayArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        resultDiplayArray.push(`<li class="text-warning">${arr[i]}</li>`)
+    }
+    return resultDiplayArray;
+}
+const resultDiplayArray = makeList(result.failure);
+console.log(resultDiplayArray);
+
+//Write concise Object Literal Declarations using simple fields
+const createPerson = (name, age, gender) => {
+    return {
+        name: name,
+        age: age,
+        gender: gender
+    };
+
+};
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+
+//Simplified version of the code above
+const create = (name, age, gender) => ( { name, age, gender} ); //Javascript knows to create key : value pairs with the key having the same name as the value, and also knows that it will return the object in the { }.
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+
+//Write Concise Declarative Functions
+const bicycle = {
+    gear: 2,
+    setGear: function(newGear) {
+        "use strict";
+        this.gear = newGear;
+    }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+//Rewriting the code above in a more concise fashion
+const bicycle = {
+    gear: 2,
+    setGear(newGear) {
+        "use strict";
+        this.gear = newGear;
+    }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+//Use class syntax to define a constructor function
+//This is the older format
+var SpaceShuttle = function(targetPlanet) { //Constructor function creation
+    this.targetPlanet = targetPlanet;
+}
+var zeus = new SpaceShuttle('Jupiter'); //creates a new object
+console.log(zeus.targetPlanet);
+
+//Class syntax rewrite of the code above
+class SpaceShuttle {
+    constructor(targetPlanet) {
+        this.targetPlanet = targetPlanet;
+    }
+}
+var zeus = new SpaceShuttle('Jupiter');
+console.log(zeus.targetPlanet);
+
+//Another example of class syntax to define a constructor function
+function makeClass() {
+    class Vegetable {
+        constructor(name) {
+            this.name = name;
+        }  
+    }
+    return Vegetable;
+}
+const Vegetable = makeClass(); //returns a Vegetable class
+const carrot = new Vegetable('carrot'); //carrot is passed into name, and is then set as this.name
+console.log(carrot.name); //Prints "carrot"
+
+//Use getters and setters to Control Access to an Object

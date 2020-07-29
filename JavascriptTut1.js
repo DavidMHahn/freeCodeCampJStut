@@ -1708,3 +1708,75 @@ const carrot = new Vegetable('carrot'); //carrot is passed into name, and is the
 console.log(carrot.name); //Prints "carrot"
 
 //Use getters and setters to Control Access to an Object
+class Book {
+    constructor(author) {
+        this._author = author; //Private variable is _author, it gets set when constructing the object. Note: //'this.' means that the variable is only accessible within the class it is in. '_variable' usually denotes a private variable.
+    }
+    //getter - returns or gets the value of an object's private variable to the user without the user directly accessing the private variable.
+    get writer() {
+        return this._author;
+    }
+    //setter
+    set writer(updatedAuthor) {
+        this._author = updatedAuthor;
+    }
+}
+//Example of Getters and Setters (Fahrenheit and Celcius)
+function makeClass() {
+    class Thermostat {
+        constructor(temp) {
+            this._temp = 5/9 * (temp - 32);
+        }
+        get temperature() {
+            return this._temp;
+        }
+        set temperature(updatedTemp) {
+            this._temp - updatedTemp;
+        }
+    }
+
+    return Thermostat; //returned by the makeClass() function.
+}
+
+const Thermostat = makeClass(); //takes the return value of Thermostat from the makeClass() function and sets it equal to Thermostat variable
+const thermos = new Thermostat(76); //always use 'new' keyword when instantiating an object. We are passing in the value 76 which goes into the constructor(temp).
+let temp = thermos.temperature; //uses the getter which returns this._temp
+thermos.temperature = 26; //uses the setter, to set with the updated temperature 26
+temp = thermos.temperature;
+console.log(temp); //prints 26
+
+//Understand the Differences between import and require. Require function was used in the past to import code and functions from other files. Now, import and export. You can export code in one file and import it in another file. You can also import only certain functions or certain variables.
+
+//in another .js file you have the code you want
+//e.g. a file named string_function.js containing the code:
+//  export const capitalizeString = str => str.toUpperCase(); 
+// This is a variable named capitalizeString that is set to a function str.toUpperCase()
+
+//Now we can import the function from the above 'file'.
+import { capitalizeString } from "./string_function"
+ const cap = capitalizeString("hello!")
+
+ console.log(cap); //Prints "HELLO!"
+
+ // Use export to Reuse a Code Block
+
+ const capitalizeString = (string) => {
+     return string.charAt(0).toUpperCase() + string.slice(1);
+ }
+
+ export { capitalizeString }; //This function is exported
+
+ export const foo = "bar"; //This variable is exported
+ export const bar = "foo"; //This variable is exported
+
+//Use * to Import Everything from a File
+import * as capitalizeStrings from "capitalizeStrings"; //This creates an object to hold the data from the "fileName".
+
+//Create an Export Fallback with export default. used when you only want to export one thing from a file.
+export default function subtraction(x,y) {return x - y;}
+
+//Import a default export
+//Assume a pre-existing file called math_functions with a default export named subtract.
+import subtract from "math_functions"; //no need for {} around 'subtract' since it is a default export value
+subtract(7,4);
+
